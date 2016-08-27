@@ -1,9 +1,8 @@
 class MessagesController < ApplicationController
   def index
     @message = Message.new
-    ##メッセージを全て取得
-    @message = Message.all
-  
+    # Messageを全て取得する。
+    @messages = Message.all
   end
   ##messageを初期化
   def create
