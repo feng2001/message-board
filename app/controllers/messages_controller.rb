@@ -38,7 +38,7 @@ class MessagesController < ApplicationController
   
   private ##ストロングパラメーター（イレギュラー防止）
   def message_params
-    params.require(:message).permit(:name, :body)
+    params.require(:message).permit(:name, :body, :age)
   end
   ##ここまで  
     def set_message
