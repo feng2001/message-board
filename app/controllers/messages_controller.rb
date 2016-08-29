@@ -7,8 +7,14 @@ class MessagesController < ApplicationController
   ##messageを初期化
   def create
     @message = Message.new(message_params)
-    @message.save
-    redirect_to root_path , notice: 'メッセージを保存しました'
+    if @message.save
+      redirect_to root_path , notice: 'メッセージを保存しました'
+    else
+      #失敗した場合#
+      @messages = Message.all
+      flash.now[:alert] = "メッセージの保存に失敗しました"
+      render 'index'
+    end
   end
   
   private ##ストロングパラメーター（イレギュラー防止）
