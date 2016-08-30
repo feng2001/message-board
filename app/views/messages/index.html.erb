@@ -4,22 +4,25 @@
   </div>
   <div class="panel-body">
       <div class="content col-sm-12">
-  
     <% @messages.each do |message| %>
-    <label for="message_age" class="control-label col-md-1">年齢：</label><%= message.age %></span>
-      
-      <label for="message_name" class="control-label col-md-3">名前：</label><span class="label label-info"><%= message.name %></span>
-      <label for="message_name" class="control-label col-md-8">コメント：</label>
+    <div class="age col-sm-2" >
+    <label for="message_age" class="control-label ">年齢：</label><%= message.age %></span>
+    </div>
+    <div class="name col-sm-2" >
+      <label for="message_name" class="control-label ">名前：</label><span class="label label-info"><%= message.name %></span>
+    </div>
+    <div class="comment col-sm-8" >
+      <label for="message_body" class="control-label ">コメント：</label>
       <%= message.body %>
       
       (<%= link_to "edit" , edit_message_path(message) %>
        <%= link_to "destroy" , message , method: :delete, data:
        { confirm: '削除してもよろしいですか？' } %>
        )
-      
+      </div>
       <br>
     <% end %>
   </div>
   </div>
-  <%= render 'form' %>
 </div>
+  <%= render 'form' %>
